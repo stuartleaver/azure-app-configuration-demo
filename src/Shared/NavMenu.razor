@@ -1,0 +1,57 @@
+﻿@using Microsoft.FeatureManagement
+@inject IFeatureManager FeatureManager
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Rooftop Groceries</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable justify-content-center" @onclick="ToggleNavMenu">
+    <nav>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <i class="oi oi-plus fa-solid fa-home" aria-hidden="true"></i> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="#">
+                <i class="oi oi-plus fa-solid fa-shop" aria-hidden="true"></i> Groceries
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="#">
+                <i class="oi oi-plus fa-solid fa-shop" aria-hidden="true"></i> Merchandise
+            </NavLink>
+        </div>
+        @if (_isDeliveryEnabled)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="#">
+                    <i class="oi oi-plus fa-solid fa-truck" aria-hidden="true"></i> Delivery
+                </NavLink>
+            </div>
+        }
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+    
+    private bool _isDeliveryEnabled;
+  
+    protected override async Task OnInitializedAsync()
+    {
+        _isDeliveryEnabled = await FeatureManager.IsEnabledAsync("Delivery");
+    }
+}

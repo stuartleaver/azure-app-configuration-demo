@@ -1,0 +1,47 @@
+﻿@page "/"
+
+@using Microsoft.FeatureManagement
+@inject IFeatureManager FeatureManager
+
+<PageTitle>Index</PageTitle>
+
+<div class="home-cards">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../images/maria-lin-kim-8RaUEd8zD-U-unsplash.jpg" style="height: 180px" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Groceries</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada elementum metus, vitae vehicula elit congue convallis. Pellentesque.</p>
+            <a href="#" class="btn btn-primary">Go to groceries</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../images/doris-morgan-ztyiLv7tC0o-unsplash.jpg" style="height: 180px" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Merchandise</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada elementum metus, vitae vehicula elit congue convallis. Pellentesque.</p>
+            <a href="#" class="btn btn-primary">Go to merchandise</a>
+        </div>
+    </div>
+    @if (_isDeliveryEnabled)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../images/jesse-ramirez-YiSD-1eJ_1g-unsplash.jpg" style="height: 180px" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Delivery</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada elementum metus, vitae vehicula elit congue convallis. Pellentesque.</p>
+                <a href="#" class="btn btn-primary">Go to delivery</a>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+
+    private bool _isDeliveryEnabled;
+  
+    protected override async Task OnInitializedAsync()
+    {
+        _isDeliveryEnabled = await FeatureManager.IsEnabledAsync("Delivery");
+    }
+
+}

@@ -1,0 +1,15 @@
+.home-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    grid-row-gap: 2rem;
+    justify-content: center;
+}
+
+@media (min-width: 641px) {
+    .home-cards {
+        flex-direction: row;
+        gap: 3%;
+        grid-row-gap: 2rem;
+    }
+}
