@@ -4,7 +4,7 @@ on:
       - main
     paths:
     - '!/**'
-    - 'bicep/**'
+    - 'src/**'
 name: Application - Web
 env:
   AZURE_WEBAPP_NAME: appconfigdemoyqghsoew5xwcg
