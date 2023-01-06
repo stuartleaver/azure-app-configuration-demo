@@ -13,8 +13,8 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         .UseFeatureFlags();
 });
 
-builder.Services.AddAzureAppConfiguration()
-    .AddFeatureManagement();
+builder.Services.AddAzureAppConfiguration();
+builder.Services.AddFeatureManagement();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
