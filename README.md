@@ -13,4 +13,4 @@ This repo contains the following samples, with sample code, to get started with 
 
 | Feature                 | Description                                                                             | Link                                                            |
 | -----------             | -----------                                                                             | -----------                                                     |
-| Feature Management      | Using Azure App Configuration as a single repository to store and manage feature flags. | [Sample code](01-FeatureManagement/README.md)                   |
+| Feature Management      | Using Azure App Configuration as a single repository to store and manage feature flags. | [Sample code](01-feature-management/README.md)                  |

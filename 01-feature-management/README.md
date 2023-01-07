@@ -50,7 +50,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 ```
 Azure App Configuration gives you keys for read-write and read-only. In this sample, the latter is used to keep permissions to just those that are required.
 
-![azure app configuration keys](/assets/azure-app-configuration-access-keys.png)
+![azure app configuration keys](./assets/azure-app-configuration-access-keys.png)
 
 Note - The sample code stores the connection string in a Key Vault. The Key Vault is then added as a configuration provider. This is to add better security around secrets rather than storing them in configuration files.
 
@@ -98,7 +98,7 @@ If you have followed through the deployment steps above, you should see a page t
 
 At the moment, the feature flag does not exist in the App Configuration resource. To create this, navigate to the App Configuration resource that has been created, and the Feature Mangement blade.
 
-![azure app configuration feature management](/assets/azure-app-configuration-feature-management.png)
+![azure app configuration feature management](./assets/azure-app-configuration-feature-management.png)
 
 Next click on `Create` and fill in the new feature flag options as follows
 
@@ -112,19 +112,19 @@ Next click on `Create` and fill in the new feature flag options as follows
 
 You should have something that looks like this:
 
-![azure app configuration new feature flag](/assets/azure-app-configuration-new-feature-flag.png)
+![azure app configuration new feature flag](./assets/azure-app-configuration-new-feature-flag.png)
 
 Then just click `Apply` and you should see your newly created feature flag.
 
 If you navigate to the App Service URL again, or just refresh the page if you still have it open, you should see the new Delivery option on the site.
 
-![rooftop groceries delivery feature-on](/assets/rooftop-groceries-delivery-feature-on.png)
+![rooftop groceries delivery feature-on](./assets/rooftop-groceries-delivery-feature-on.png)
 
 To show how the feature flag can be managed going forwards, you can disable and enable the `Delivery` feature flag in the App Configuration store and refresh the page to see the feature being turned off and on.
 
 Just bear in mind that the default refresh time is 30 seconds. So if you refresh and don't notice any change, you will need to wait up to 30 seconds.
 
-![azure app configuration manage feature flags](/assets/azure-app-configuration-manage-feature-flags.png)
+![azure app configuration manage feature flags](./assets/azure-app-configuration-manage-feature-flags.png)
 
 Therefore showing how features can be turned on and off from a centralised location, without deploying a new version of the code.
 
